@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.DashboardPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utilities.BrowserFactory;
@@ -15,4 +16,5 @@ public class BaseTest {
 
     public HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+    public DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
 }
