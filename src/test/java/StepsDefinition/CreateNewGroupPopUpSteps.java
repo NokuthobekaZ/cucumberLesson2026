@@ -1,57 +1,51 @@
 package StepsDefinition;
 
+import Base.BaseTest;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CreateNewGroupPopUpSteps {
+public class CreateNewGroupPopUpSteps extends BaseTest {
 
     @Then("Create New Group pop up page should be displayed")
     public void create_new_group_pop_up_page_should_be_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        createNewGroupPopUpPage.verifyCreateNewGroupPopUpPageIsDisplayed();
+
     }
 
-    @And("I enter group name <groupName>")
-    public void iEnterGroupNameGroupName() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("I enter group name (.+)$")
+    public void iEnterGroupNameGroupName(String groupName) {
+        createNewGroupPopUpPage.enterGroupName(groupName);
     }
 
-    @And("I enter group description <description>")
-    public void iEnterGroupDescriptionDescription() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("I enter group description (.+)$")
+    public void iEnterGroupDescriptionDescription(String description) {
+        createNewGroupPopUpPage.enterGroupDescription(description);
     }
 
-    @And("I enter year <year>")
-    public void iEnterYearYear() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("I enter year")
+    public void iEnterYear() {
+        createNewGroupPopUpPage.enterYear();
     }
 
-    @And("I enter max capacity <maxCapacity>")
+    @And("I enter max capacity")
     public void iEnterMaxCapacityMaxCapacity() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        createNewGroupPopUpPage.enterMaxCapacity();
     }
 
-    @And("I enter start date <startDate>")
+    @And("I enter start date")
     public void iEnterStartDateStartDate() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        createNewGroupPopUpPage.enterStartDate();
     }
 
-    @And("I enter end date <endDate>")
+    @And("I enter end date")
     public void iEnterEndDateEndDate() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        createNewGroupPopUpPage.enterEndDate();
     }
 
-    @When("I click {string} button")
-    public void iClickButton(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("I click Create Group button")
+    public void iClickCreateGroupButton() {
+        createNewGroupPopUpPage.clickCreateGroupButton();
     }
 }

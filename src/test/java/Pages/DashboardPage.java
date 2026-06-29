@@ -1,10 +1,15 @@
 package Pages;
 
 import Utilities.WaitUtil;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DashboardPage {
     WebDriver driver;
@@ -13,11 +18,14 @@ public class DashboardPage {
     @FindBy(xpath = "//span[normalize-space()='back,']")
     WebElement welcomeMessage_xpath;
 
-    @FindBy(xpath = "//button[@class='user-pill open']//span[contains(text(),'▼')]")
+    @FindBy(xpath = "//span[normalize-space()='Menu']")
     WebElement menuButton_xpath;
 
     @FindBy(xpath = "//button[@class='nav-dropdown-item']//span[contains(text(),'Admin Panel')]")
     WebElement adminPanel_xpath;
+
+    @FindBy(xpath = "//button[@class='nav-dropdown-item']//span[contains(text(),'Logout')]")
+    WebElement logoutButton_xpath;
 
 
     public DashboardPage(WebDriver driver) {
@@ -42,6 +50,23 @@ public class DashboardPage {
     }
 
     public void clickAdminPanel() {
+        waitUtil.waitForElementToBeClickable(adminPanel_xpath);
         adminPanel_xpath.click();
+    }
+
+    public void clickLogoutButton() {
+        waitUtil.waitForElementToBeClickable(logoutButton_xpath);
+        logoutButton_xpath.click();
+    }
+
+    public void confirmLogout() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String actualMessage = alert.getText();
+        if (!actualMessage.equals("Are you sure you want to logout?")) {
+            throw new AssertionError("Unexpected alert message: " + actualMessage);
+        }
+
+        alert.accept();
     }
 }
