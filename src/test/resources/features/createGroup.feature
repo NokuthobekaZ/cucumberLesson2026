@@ -29,4 +29,4 @@ Feature: create group
 
     Examples:
       | email                    | password   | groupName    | description          |
-      | clautildazuma@icloud.com | Summer123! | Test ytrh 3 | This is a test group |
+      | clautildazuma@icloud.com | Summer123! | Test ytth 3 | This is a test group |
