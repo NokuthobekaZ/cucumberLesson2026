@@ -24,3 +24,5 @@ jobs:
           java-version: '21'
           cache: maven
 
+      - name: Build and Run tests
+        run: mvn clean test -Dheadless=true
