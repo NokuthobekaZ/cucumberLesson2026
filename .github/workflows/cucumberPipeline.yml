@@ -1,4 +1,4 @@
-name: Cucumber Pipeline
+name: Cucumbern Pipeline
 
 on:
   push:
