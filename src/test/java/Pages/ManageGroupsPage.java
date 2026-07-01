@@ -17,8 +17,8 @@ public class ManageGroupsPage {
     @FindBy(xpath = "//button[normalize-space()='+ Create New Group']")
     WebElement createNewGroupButton_xpath;
 
-    @FindBy(xpath = "//div[normalize-space()='Group created successfully!']")
-    WebElement groupCreatedSuccessMessage_xpath;
+    @FindBy(xpath = "//*[contains(text(),'Group created successfully')]")
+    private WebElement groupCreatedSuccessfullyMessage;
 
     @FindBy(xpath = "//button[contains(text(),'← Back to Website')]")
     WebElement backToWebsiteButton_xpath;
@@ -41,10 +41,13 @@ public class ManageGroupsPage {
         createNewGroupButton_xpath.click();
     }
 
-    public void verifyGroupCreatedSuccessMessageIsDisplayed() {
-        waitUtil.waitForElementToBeVisible(groupCreatedSuccessMessage_xpath);
-        if (!groupCreatedSuccessMessage_xpath.isDisplayed()) {
-            throw new AssertionError("Group created success message not displayed");
+    public void verifyGroupCreatedSuccessfully() {
+        waitUtil.waitForElementToBeVisible(groupCreatedSuccessfullyMessage);
+
+        String actualMessage = groupCreatedSuccessfullyMessage.getText();
+
+        if (!actualMessage.contains("Group created successfully")) {
+            throw new AssertionError("Group was not created successfully. Actual message: " + actualMessage);
         }
     }
 

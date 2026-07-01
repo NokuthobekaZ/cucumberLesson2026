@@ -21,7 +21,7 @@ public class ManageGroupSteps extends BaseTest {
 
     @Then("I should see a success message Group created successfully")
     public void iShouldSeeASuccessMessageGroupCreatedSuccessfully() {
-        manageGroupsPage.verifyGroupCreatedSuccessMessageIsDisplayed();
+        manageGroupsPage.verifyGroupCreatedSuccessfully();
     }
 
     @And("I click back to website button")

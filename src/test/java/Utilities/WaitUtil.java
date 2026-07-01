@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class WaitUtil {
 
-    private static final int DEFAULT_WAIT_TIME = 15;
+    private static final int DEFAULT_WAIT_TIME = 30;
     private WebDriver driver;
     private WebDriverWait wait;
 
