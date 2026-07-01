@@ -24,5 +24,13 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Build and Run tests
+      - name: Run tests headless
         run: mvn clean test -Dheadless=true
+
+      - name: Upload cucumber Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-reports
+          path: target/cucumber-reports.html
+
