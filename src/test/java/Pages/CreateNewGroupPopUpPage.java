@@ -89,6 +89,7 @@ public class CreateNewGroupPopUpPage {
     }
 
     public void clickCreateGroupButton() {
+        waitUtil.waitForElementToBeClickable(createGroupButton_xpath);
         createGroupButton_xpath.click();
     }
 }
